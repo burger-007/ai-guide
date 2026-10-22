@@ -1,0 +1,18 @@
+# ============================================
+# Software Factory Pipeline — Dependencies
+# ============================================
+
+# Core
+pyyaml>=6.0
+python-dotenv>=1.0
+
+# LLM Clients
+openai>=1.30
+# anthropic>=0.30  # Install when needed
+
+# Web Search
+aiohttp>=3.9
+ddgs>=9.0
+
+# CLI
+rich>=13.0

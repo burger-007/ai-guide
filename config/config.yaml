@@ -1,0 +1,137 @@
+# ============================================
+# 🏭 Software Factory Pipeline — Configuration
+# ============================================
+
+pipeline:
+  name: "Software Factory"
+  version: "0.1.0"
+  language: "en"            # Global market, English UI
+  human_review: true        # Require human approval before deploy
+  max_concurrent_agents: 5
+
+# ---- LLM Model Configuration (Model Arbitrage) ----
+models:
+  router:
+    provider: "openai"
+    model: "gpt-4o-mini"        # Lightweight for routing
+    max_tokens: 500
+  
+  analyzer:
+    provider: "openai"
+    model: "gpt-4o"             # Mid-tier for analysis
+    max_tokens: 4000
+  
+  coder:
+    provider: "anthropic"
+    model: "claude-sonnet-4-20250514"  # Strong coder
+    max_tokens: 8000
+  
+  strategist:
+    provider: "openai"
+    model: "gpt-4o"             # For reflection / evolution
+    max_tokens: 4000
+
+# ---- Pipeline Stages ----
+stages:
+  observe:
+    schedule: "*/120 * * * *"   # Every 2 hours
+    agents:
+      - trend_scanner
+      - pain_point_finder
+      - competitor_analyzer
+
+  analyze:
+    trigger: "on_new_opportunity"
+    agents:
+      - data_cleaner
+      - requirement_distiller
+      - prd_generator
+
+  build:
+    trigger: "on_prd_approved"
+    agents:
+      - architect_agent
+      - code_generator
+      - data_layer_agent
+      - tester_agent
+
+  deploy:
+    trigger: "on_build_complete"
+    human_gate: true            # ⭐ Wait for human approval
+    agents:
+      - deploy_agent
+      - seo_agent
+      - tracking_verifier
+
+  monitor:
+    schedule: "*/360 * * * *"   # Every 6 hours
+    agents:
+      - health_monitor
+      - feedback_analyzer
+      - update_trigger
+      - data_reporter
+
+# ---- Product Templates ----
+product:
+  framework: "nextjs"
+  styling: "tailwind"
+  ui_library: "shadcn"
+  deployment: "vercel"
+  database: "supabase"
+  analytics: "posthog"
+
+# ---- Social Channels ----
+channels:
+  reddit:
+    enabled: true
+    role: ["observe", "distribute"]
+    rate_limit_posts_per_day: 3
+    rate_limit_comments_per_hour: 5
+    watch_subreddits:
+      - "SideProject"
+      - "webdev"
+      - "startups"
+      - "SaaS"
+      - "Entrepreneur"
+      - "InternetIsBeautiful"
+
+  threads:
+    enabled: true
+    role: ["observe", "distribute"]
+    rate_limit_posts_per_day: 10
+
+  x_twitter:
+    enabled: true
+    role: ["distribute"]        # Free tier = post only
+    rate_limit_posts_per_day: 10
+
+  whatsapp:
+    enabled: false              # Enable after setup
+    role: ["feedback"]
+
+# ---- Self-Optimization ----
+self_optimization:
+  micro_reflection: true
+  macro_reflection:
+    daily: true
+    weekly: true
+    monthly: true
+  memory:
+    vector_store: "chromadb"
+    decay_lambda: 0.05
+  soul_evolution:
+    enabled: true
+    frequency: "monthly"
+  strategy_arena:
+    enabled: true
+    frequency: "quarterly"
+
+# ---- Data Collection (Most Important!) ----
+data_collection:
+  posthog:
+    track_page_views: true
+    track_feature_usage: true
+    track_performance: true
+    track_errors: true
+  custom_events:
+    store: "supabase"

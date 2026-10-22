@@ -1,0 +1,177 @@
+{
+  "key": "prd_IncomeInsight",
+  "value": {
+    "product_overview": {
+      "product_name": "IncomeInsight",
+      "display_name": "IncomeInsight",
+      "tagline": "See where you stand — compare your income to your country and the world.",
+      "target_user": "Individuals curious about their financial standing relative to others in their country and globally.",
+      "core_problem": "People lack an easy, free tool to visualize their income's position relative to others, leading to uncertainty about their financial status.",
+      "success_metric": "Achieve 10,000 unique users within the first month of launch."
+    },
+    "user_stories": [
+      {
+        "story": "As a user, I want to enter my annual income and select my country so that I can see my income percentile rank.",
+        "priority": "P0",
+        "acceptance_criteria": "User can select a country from a dropdown, enter an annual income, and see their percentile rank displayed with an animated bar chart."
+      },
+      {
+        "story": "As a user, I want to compare my income with another country so that I can understand my financial standing globally.",
+        "priority": "P1",
+        "acceptance_criteria": "User can select a second country to compare against, and the tool displays side-by-side percentile ranks for both countries."
+      },
+      {
+        "story": "As a user, I want to share my income percentile result on social media so that I can engage my friends and family.",
+        "priority": "P1",
+        "acceptance_criteria": "User can generate a shareable image of their result and post it to social media platforms directly from the tool."
+      },
+      {
+        "story": "As a user, I want to understand how my income compares to the average income in my country so that I can gauge my financial health.",
+        "priority": "P2",
+        "acceptance_criteria": "The tool displays the average income for the selected country alongside the user's income and percentile rank."
+      },
+      {
+        "story": "As a user, I want to access a privacy policy so that I can understand how my data is handled.",
+        "priority": "P2",
+        "acceptance_criteria": "User can navigate to a privacy policy page that clearly outlines data usage and privacy practices."
+      }
+    ],
+    "feature_spec": [
+      {
+        "feature": "Income Entry and Percentile Calculation",
+        "user_flow": "User selects country > User enters income > User clicks 'Calculate' > Percentile rank displayed.",
+        "input": {
+          "country": "Selected from dropdown",
+          "income": "Annual income entered by user"
+        },
+        "output": {
+          "percentile_rank": "Displayed as an animated bar chart"
+        },
+        "data_events": [
+          "User selects country",
+          "User enters income",
+          "User clicks 'Calculate'",
+          "Percentile rank displayed"
+        ]
+      },
+      {
+        "feature": "Country Comparison",
+        "user_flow": "User selects first country > User enters income > User selects second country > Comparison displayed.",
+        "input": {
+          "first_country": "Selected from dropdown",
+          "income": "Annual income entered by user",
+          "second_country": "Selected from dropdown"
+        },
+        "output": {
+          "comparison_chart": "Side-by-side comparison of percentile ranks"
+        },
+        "data_events": [
+          "User selects first country",
+          "User enters income",
+          "User selects second country",
+          "Comparison displayed"
+        ]
+      },
+      {
+        "feature": "Social Media Sharing",
+        "user_flow": "User views result > User clicks 'Share' > User selects social media platform > Shareable image generated.",
+        "input": {
+          "platform": "Selected social media platform"
+        },
+        "output": {
+          "shareable_image": "Generated image of income percentile result"
+        },
+        "data_events": [
+          "User clicks 'Share'",
+          "User selects platform",
+          "Shareable image generated"
+        ]
+      }
+    ],
+    "tech_architecture": {
+      "framework": "Next.js 14 App Router",
+      "styling": "Tailwind CSS",
+      "deployment": "Vercel",
+      "analytics": "PostHog",
+      "database": "None (client-side processing)",
+      "key_libraries": [
+        "Recharts for data visualization"
+      ],
+      "api_routes": [
+        "/api/calculate-percentile",
+        "/api/get-average-income"
+      ]
+    },
+    "data_collection_plan": {
+      "analytics_events": [
+        "Country selection event",
+        "Income entry event",
+        "Calculation button click event",
+        "Comparison selection event",
+        "Social media share event"
+      ],
+      "privacy_notes": "No personal income data is sent to servers; all processing is done client-side."
+    },
+    "ui_spec": {
+      "pages": [
+        {
+          "path": "/",
+          "layout": "Main Tool Layout",
+          "components": [
+            "Country Dropdown",
+            "Income Input Field",
+            "Calculate Button",
+            "Animated Bar Chart",
+            "Comparison Dropdown",
+            "Share Button"
+          ]
+        },
+        {
+          "path": "/privacy",
+          "layout": "Privacy Policy Layout",
+          "components": [
+            "Privacy Policy Text"
+          ]
+        },
+        {
+          "path": "/about",
+          "layout": "About Layout",
+          "components": [
+            "About Text",
+            "Team Information"
+          ]
+        }
+      ],
+      "design_tokens": {
+        "colors": {
+          "primary": "#4A90E2",
+          "secondary": "#50E3C2",
+          "background": "#FFFFFF",
+          "text": "#333333",
+          "chart": "#F5A623"
+        },
+        "font": {
+          "family": "Inter, sans-serif",
+          "size": "16px",
+          "weight": "400"
+        },
+        "style": {
+          "borderRadius": "8px",
+          "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
+        }
+      }
+    },
+    "launch_checklist": [
+      "Finalize UI design and components",
+      "Implement all MVP features",
+      "Set up PostHog for analytics tracking",
+      "Test all user flows and acceptance criteria",
+      "Deploy to Vercel",
+      "Conduct user testing and gather feedback",
+      "Prepare marketing materials for launch",
+      "Launch IncomeInsight to the public"
+    ]
+  },
+  "timestamp": "2026-04-13T09:15:39.975922",
+  "agent_id": "prd_generator"
+}

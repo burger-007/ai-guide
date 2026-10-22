@@ -1,0 +1,27 @@
+{
+  "key": "build_IncomeInsight",
+  "value": {
+    "product_dir": "products\\IncomeInsight",
+    "files": [
+      "package.json",
+      "next.config.js",
+      "tsconfig.json",
+      "tailwind.config.ts",
+      "postcss.config.js",
+      ".env.local.example",
+      "src/app/layout.tsx",
+      "src/app/page.tsx",
+      "src/app/globals.css",
+      "src/components/Header.tsx",
+      "src/components/Footer.tsx",
+      "src/components/MainTool.tsx",
+      "src/types/index.ts",
+      "src/lib/analytics.ts",
+      "src/components/Analytics.tsx",
+      "src/app/privacy/page.tsx",
+      "README.md"
+    ]
+  },
+  "timestamp": "2026-04-13T09:16:01.423323",
+  "agent_id": "code_generator"
+}

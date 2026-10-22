@@ -1,0 +1,3 @@
+[submodule "products/IncomeInsight"]
+	path = products/IncomeInsight
+	url = https://github.com/Alice200101/income-insight.git
